@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#displays numbers from 1 to 20
+
+VAR=1
+while [ $VAR -le 20 ]; do
+    case $VAR in 
+        4)
+            echo "$VAR"
+            echo "bad luck from China"
+            ;;
+        9)
+            echo "$VAR"
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo "$VAR"
+            echo "bad luck from Italy"
+            ;;
+        *)
+            echo "$VAR"
+            ;;
+    esac
+    VAR=$((VAR+1))
+done    
