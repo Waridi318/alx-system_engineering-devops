@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#displays contents of the current directory
+
+for file in *; do
+    if [[ $file != .* ]]; then
+        echo "${file#*-}"
+    fi        
+done    
