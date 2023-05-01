@@ -2,8 +2,13 @@
 #displays the visitor IP along with the
 #HTTP status code from the Apache log file.
 
-awk -F ' ' '{print $1, $9}' apache-access.log |
-sort |
-uniq -c |
-sort -rn |
-awk '{print $1, $2, $3}'
+if [[ -s "apache-access.log" ]]; then
+    FILESIZE=$(du -b "apache-access.log" | cut -f1)
+        if awk 'BEGIN{IGNORECASE=1;FS="[\" ]+"} {if (NF!=10 || !match($4,/\[[0-9][0-9]\/[A-Za-z][a-z][a-z]\/[0-9][0-9][0-9][0-9]/) || !match($7,/(GET|POST|HEAD|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH)/) || !match($9,/[0-9]{3}/)) {exit 1}}' "apache-access.log"; then
+            awk -F ' ' '{print $1, $9}' apache-access.log |
+            sort |
+            uniq -c |
+            sort -rn |
+            awk '{print $1, $2, $3}'
+        fi
+    fi
