@@ -4,5 +4,7 @@
 
 IFS=:
 while read -r username password uid gid uid_info home shell; do
-    echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid place is protected by the passcode $password, more info about the user here: $uid_info"
+    if [ -n "$username" ] && [ "${username:0:1}" != "#" ]; then
+    echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid's place is protected by the passcode $password, more info about the user here: $uid_info"
+    fi
 done < /etc/passwd
