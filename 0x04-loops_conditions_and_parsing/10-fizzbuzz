@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#FizzBuzz
+
+VAR=1
+while [ $VAR -le 100 ]; do
+    if [ $((VAR%3)) -eq 0 ] && [ $((VAR%5)) -eq 0 ]; then
+        echo 'FizzBuzz'
+    elif [ $((VAR%3)) -eq 0 ]; then
+        echo 'Fizz'
+    elif [ $((VAR%5)) -eq 0 ]; then
+        echo 'Buzz'
+    else
+        echo "$VAR"
+    fi
+    VAR=$((VAR+1))
+done    
