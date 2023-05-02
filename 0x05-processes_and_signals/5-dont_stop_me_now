@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #stops 4-to_infinity_and_beyond process
 
-PID=$(pidof "4-to_infinity_and_beyond")
-
-for _ in $PID; do
-    kill "$PID"
-done    
+PID=$(pgrep "4-to_infinity_and_beyond")   
+if [ -n "$PID" ]; then
+    kill -15 "$PID"
+fi
