@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+#pings an IP address passed as an argument.
+
 ping -c 5 8.8.8.8
