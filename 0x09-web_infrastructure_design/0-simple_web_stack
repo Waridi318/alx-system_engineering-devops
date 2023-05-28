@@ -1,0 +1,22 @@
+A server is a physical or virtual machine that hosts the entire web infrastructure. It is responsible for running the necessary software and services.
+
+The domain name allows users to easily reach the website without needing to remember its IP address.
+
+www.foobar.com is a CNAME DNS record type. The www.foobar.com maps to the
+main domain foobar.com
+
+The web server serves the static pages of the website www.foobar.com
+
+The application server serves the dynamic pages of the website
+
+The database stores files and extra information needed by our website
+
+the server is using http protocol to receive requests from the client and send back responses
+
+SPOF- Downtime, incase server fails, since there is no redundancy
+    - Over load on the server in case of multiple clients
+    - Security since we dont have any firewalls to check incoming data
+
+Downtime when maintenance needed (like deploying new code web server needs to be restarted) since we have only 1 server design
+
+https://lucid.app/lucidchart/b35666fb-39ce-498c-9646-0f39d9d66f1a/edit?viewport_loc=149%2C-79%2C2048%2C926%2C0_0&invitationId=inv_86c0f0ea-62fa-4dca-83c1-ccd6984f6e5a

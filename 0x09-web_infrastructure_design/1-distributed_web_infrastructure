@@ -1,0 +1,11 @@
+I have added 2 servers to provide for redundancy and efficiency in case one is down
+The load balancer balances traffic to and from the servers to clients
+I've used active passive setup, such that, 1 server is active, the other 2 being on stand-by in case the other active one fails
+
+A database Primary-Replica cluster: The primary dbs acts as the main dbs, the replica one being on stand by incase of failure
+
+SPOF - SPOF are reduced in this infrastructure, since it provides for redundancy
+    - Security issues since we don't have firewalls to check for incoming data
+    - Our infrastructure is not being monitored hence, failure in the system may not be quickly and easily detected
+
+https://lucid.app/lucidchart/9a42c53d-3880-44d0-a449-95209f79eb53/edit?viewport_loc=-957%2C1335%2C2048%2C926%2C0_0&invitationId=inv_7103673f-d69a-4ad5-86d9-5f502bde92c2

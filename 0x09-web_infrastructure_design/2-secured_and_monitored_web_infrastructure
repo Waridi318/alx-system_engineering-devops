@@ -1,0 +1,10 @@
+The firewalls protect the network, by filtering data allowed throough the network
+
+SSL certificate is to allow for HTTPS decryption to HTTP and viceversa
+
+the 3 clients, are to monitor the server data, collect the data generated
+
+Server QPS can be monitored using Open Source tools eg Nagios, Cacti, Munin
+    -Using commercial products eg SolarWinds, Datadog and New Relic
+
+https://lucid.app/lucidchart/b21d88bb-30a2-4077-8b33-a90cdd802768/edit?viewport_loc=-150%2C-646%2C3072%2C1389%2C0_0&invitationId=inv_2fc65c80-cc35-4ea8-a322-16d86d7f2859
