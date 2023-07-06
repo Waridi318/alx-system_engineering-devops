@@ -3,17 +3,24 @@
 
 sudo apt-get update
 sudo apt-get install -y nginx
-
-mkdir /etc/nginx/html
-echo "Hello World" > /etc/nginx/html/index.html
-printf %s "server {
-    listen 80;
+sudo ufw allow "Nginx HTTP"
+sudo mkdir -p /etc/nginx/html
+sudo chmod -R 755 /var/www
+sudo echo "Hello World" > /var/www/html/index.html
+SERVER_CONFIG=\
+"server {
+    listen 80 default_server;
     listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    root   /var/www/html;
+    index  index.html index.htm index.nginx-debain.html;
+    server_name _;
+    location / {
+        try_files \$uri \$uri/ =404;
+        }
+    if (\$request_filename ~ redirect_me){
+            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
     }
-}" > /etc/nginx/sites-enabled/default
+}"
+sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 
 sudo service nginx restart
