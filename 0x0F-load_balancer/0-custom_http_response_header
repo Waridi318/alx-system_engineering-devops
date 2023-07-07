@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 # configures a new ubuntu machine to include a
 # custom HTTP response header
-echo "add_header X-Served-By $hostname;" > /etc/nginx/nginx.conf
+
+var = $(hostname)
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow "Nginx HTTP"
+echo "add_header X-Served-By $var;" > /etc/nginx/nginx.conf
+sudo service nginx start
