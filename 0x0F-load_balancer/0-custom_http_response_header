@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# configures a new ubuntu machine to include a
+# custom HTTP response header
+echo "add_header X-Served-By $hostname;" > /etc/nginx/nginx.conf
