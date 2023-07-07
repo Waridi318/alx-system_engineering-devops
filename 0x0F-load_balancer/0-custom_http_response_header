@@ -2,9 +2,10 @@
 # configures a new ubuntu machine to include a
 # custom HTTP response header
 
-var = $(hostname)
+var="$(hostname)"
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo ufw allow "Nginx HTTP"
-echo "add_header X-Served-By $var;" > /etc/nginx/nginx.conf
+#sudo ufw allow "Nginx HTTP"
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "add_header X-Served-By $var;" >> /etc/nginx/nginx.conf
 sudo service nginx start
