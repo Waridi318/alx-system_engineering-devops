@@ -19,4 +19,4 @@ echo 'server {
 sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled
 # sudo nginx -t
 
-sudo service nginx restart
+sudo service nginx start
