@@ -6,21 +6,17 @@ sudo apt-get install -y nginx
 sudo ufw allow "Nginx HTTP"
 sudo mkdir -p /etc/nginx/html
 sudo chmod -R 755 /var/www
-echo "Hello World" > /var/www/html/index.html
-SERVER_CONFIG=\
-"server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    root   /var/www/html;
-    index  index.html index.htm index.nginx-debain.html;
-    server_name _;
-    location / {
-        try_files \$uri \$uri/ =404;
+sudo echo "Hello World!" > /var/www/html/index.html
+echo 'server {
+        listen 80;
+        server_name 54.209.111.179;
+
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
         }
-    if (\$request_filename ~ redirect_me){
-            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-    }
-}"
-sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+}' | sudo tee /etc/nginx/sites-available/redirect_me > /dev/null
+
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled
+sudo nginx -t
 
 sudo service nginx restart
