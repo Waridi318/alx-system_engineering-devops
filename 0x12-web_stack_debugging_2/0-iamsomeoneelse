@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
 #runs whoami
 
-home_dir=$(getent passwd "$1" | cut -d: -f6)
-if [ -z "$home_dir" ]; then
-	sudo -u "$1" whoami
-else
-	sudo -u "$1" whoami
-fi
+sudo -u "$1" whoami
