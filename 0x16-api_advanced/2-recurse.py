@@ -31,7 +31,7 @@ def recurse(subreddit, hot_list=[], page=None):
     for post in results:
         title = post["data"]["title"]
         hot_list.append(title)
-        print(title)
+#        print(title)
 
     page = data.get("data").get("after")
     if page is not None:
