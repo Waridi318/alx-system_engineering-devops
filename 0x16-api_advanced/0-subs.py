@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This module contains a function that queries the
 REDDIT API and returns the number of total subscribers

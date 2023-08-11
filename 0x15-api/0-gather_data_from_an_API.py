@@ -5,11 +5,13 @@ returns information about his/her TODO list progress
 """
 
 
+import json
 from requests import get
 from sys import argv
 
 
 if __name__ == '__main__':
+    user_id = argv[1]
     url = f'https://jsonplaceholder.typicode.com/'
     params = {"userId": argv[1]}
 
