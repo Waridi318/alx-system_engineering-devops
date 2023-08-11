@@ -13,9 +13,9 @@ def number_of_subscribers(subreddit):
     """queries the REDDIT API and returns the
     number of total subscribers for a given subreddit
     """
-    url = f"https://www.reddit.com/dev/api/r/{subreddit}/about"
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {
-        "User-Agent": "linux:0x16.api.advanced:v2.0.0 (by /u/waridi318)"
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0"
     }
 
     response = get(url, headers=headers)
