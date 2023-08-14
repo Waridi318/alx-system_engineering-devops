@@ -14,8 +14,9 @@ def recurse(subreddit, hot_list=[], after="", count=0):
     }
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
-    if response.status_code == 404:
+    if response.status_code == 404 or not response:
         return None
+
 
     results = response.json()
     if not results:
