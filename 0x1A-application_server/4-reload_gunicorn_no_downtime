@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+GUNICORN_PROCESS_NAME="gunicorn daemon"
+pkill -HUP -f "$GUNICORN_PROCESS_NAME"
